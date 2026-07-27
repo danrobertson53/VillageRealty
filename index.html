@@ -172,7 +172,7 @@
 
         .hero-subtitle {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            font-size: 1.1rem; 
+            font-size: 1.15rem; 
             line-height: 1.6;  
             color: var(--text-light);
             font-weight: 400;
@@ -262,12 +262,12 @@
             color: var(--navy);
         }
 
-        /* Hero Section */
+        /* --- DESKTOP HERO & ABOUT ADJUSTMENTS --- */
         #hero {
-            padding: 160px 0 80px; 
+            padding: 140px 0 40px; /* Reduced bottom padding */
             background: linear-gradient(rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.90)), url('town-hero.png') no-repeat center center/cover;
             text-align: center;
-            min-height: 70vh; 
+            min-height: auto; /* Tightened container height */
             display: flex;
             align-items: center;
         }
@@ -279,9 +279,9 @@
         }
 
         .hero-subtitle {
-            margin: -10px auto 30px auto; 
+            margin: 20px auto 30px auto; /* Added 20px top space after logo */
             padding: 0; 
-            max-width: 450px; 
+            max-width: 480px; 
             font-size: 1.25rem;
             line-height: 1.4;
             opacity: 0;
@@ -299,8 +299,8 @@
             display: flex;
             justify-content: center;
             gap: 25px;
-            margin-top: 40px;
-            padding-top: 25px;
+            margin-top: 35px;
+            padding-top: 20px;
             opacity: 0;
             animation: slideWordUp 0.8s ease forwards;
             animation-delay: 1.6s;
@@ -323,11 +323,11 @@
             font-size: 1.2rem;
         }
 
-        /* About Section */
+        /* Desktop About Section Padding Fix */
         #about {
             background-color: var(--white);
             text-align: left;
-            padding-top: 80px; 
+            padding-top: 50px; /* Tightened gap above About section */
             padding-bottom: 80px; 
         }
 
@@ -753,7 +753,7 @@
             <p class="about-text">Navigating the local real estate market requires more than just access to listings—it takes local insight, clear negotiation strategy, and an advocate who puts your goals first. Village Realty was established to provide buyers and sellers across New Hampshire with personalized, hands-on real estate services.</p>
             <p class="about-text">Whether you are preparing to list your current home, looking for your dream property, or exploring investment opportunities in the area, we combine local expertise with modern tools to ensure a seamless experience from consultation to closing.</p>
 
-            <!-- Interactive Bio Card with mapped image name Thumb.png -->
+            <!-- Interactive Bio Card -->
             <div class="team-card">
                 <div class="team-header" onclick="toggleBio()">
                     <img src="Thumb.png" alt="Dan Robertson" class="team-photo">
@@ -797,7 +797,7 @@
                 
                 <div class="consent-wrapper">
                     <input type="checkbox" id="consent" name="consent" required>
-                    <label for="consent">By checking this box, you agree to our <a href="Terms.pdf" target="_blank">Terms of Use</a> and <a href="Privacy.pdf" target="_blank">Privacy Policy</a>. You consent to receive calls and SMS messages from Village Realty regarding real estate inquiries. Message and data rates may apply. Reply STOP to opt out.</label>
+                    <label for="consent">By checking this box, you agree to our <a href="Privacy.pdf" target="_blank">Privacy Policy</a> and <a href="Terms.pdf" target="_blank">Terms of Service</a>. You consent to receive calls and SMS messages from Village Realty regarding real estate inquiries. Message and data rates may apply. Reply STOP to opt out.</label>
                 </div>
 
                 <button type="submit" class="btn btn-submit">Send Message</button>
@@ -831,7 +831,6 @@
             </div>
 
             <div class="footer-bottom">
-                <!-- Footer logo mapped to EqualHousing.png -->
                 <div class="eho-wrap">
                     <img src="EqualHousing.png" alt="Equal Housing Opportunity">
                     <span>Equal Housing Opportunity Real Estate Brokerage</span>
@@ -872,7 +871,7 @@
 
         function smoothScroll(targetId) {
             closeMenu(); 
-            const element = document.getElementById(targetId);
+            const element = document.querySelector('nav') ? document.getElementById(targetId) : null;
             if (element) {
                 const headerOffset = document.querySelector('nav').offsetHeight;
                 const y = element.getBoundingClientRect().top + window.scrollY - headerOffset;
